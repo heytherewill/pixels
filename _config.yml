@@ -1,0 +1,25 @@
+logo: # add logo name
+title: will draws (pixelated) things
+description: >
+  Things I've drawn using pixels
+permalink: ':year/:title/'
+url: "pixels.heytherewill.com" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Tracker
+analytics: UA-148384057-2
+
+# Paginate
+paginate: 12
+paginate_path: /page:num/
+
+# Build settings
+markdown: kramdown
+plugins_dir:
+  - jekyll-paginate
+  - jekyll-sitemap
+
+gems:
+  - jekyll-paginate
+  - jekyll-sitemap
+
+include: [_pages]

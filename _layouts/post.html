@@ -1,0 +1,55 @@
+---
+layout: default
+---
+{% include header.html %}
+
+<main class="post_content">
+  <article class="post">
+    <header>
+      <div class="post_description">
+        <h1 class="post_title">{{page.title}}</h1>
+        <p class="post_meta">{{page.date | date: '%Y, %b %d'}}</p>
+      </div>
+    </header> <!-- End Header -->
+
+    <div class="entry_content">
+        <div class="post_image">
+          <img src={{ "/assets/img/" | prepend: site.baseurl | append : page.resource | append: "." | append: page.extension}} alt="{{page.title}}">
+        </div>
+        <p class="aseprite_download">
+          <a href={{ "/assets/aseprite/" | prepend: site.baseurl | append : page.resource | append: ".aseprite" }}>📥 Download .aseprite file</a>
+        </p>
+      {{page.content | markdownify}}
+    </div>
+    
+    <div class="post_wrapper">
+      <footer class="post_footer cf">
+        <div class="post_tag">
+          <span>Tags:</span>
+          {% for tag in page.tags %}
+          <a href="{{site.baseurl}}/tags#{{tag}}" class="tag">{{ tag }}</a>
+          {% endfor %}
+        </div>
+      </footer>
+    </div>
+  </article> <!-- End Section Post -->
+
+  <section class="recent_box">
+    <div class="post_wrapper">
+      <h2 class="recent_title">Recent posts</h2>
+      <div class="recent_list">
+        {% for post in site.posts offset:0 limit:6 %}
+          {% if post.title %}
+            <a href="{{ post.url | prepend: site.baseurl }}" class="recent_item">
+              <img class="recent_image" style="opacity: 0.4;" src={{ "/assets/img/" | prepend: site.baseurl | append : post.resource | append: "." | append: post.extension }} > </img>
+              <span>{{ post.title }}</span>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  
+</main> <!-- End Section Post Content -->
+
+{% include footer.html %}
