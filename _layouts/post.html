@@ -16,9 +16,16 @@ layout: default
         <div class="post_image">
           <img src={{ "/assets/img/" | prepend: site.baseurl | append : page.resource | append: "." | append: page.extension}} alt="{{page.title}}">
         </div>
+
+        {% if page.tags contains 'pixel-art' %}
         <p class="aseprite_download">
           <a href={{ "/assets/aseprite/" | prepend: site.baseurl | append : page.resource | append: ".aseprite" }}>📥 Download .aseprite file</a>
         </p>
+        {% else %}
+        <p class="aseprite_download">
+          <a href={{ "/assets/procreate/" | prepend: site.baseurl | append : page.resource | append: ".procreate" }}>📥 Download .procreate file</a>
+        </p>
+        {% endif %}
       {{page.content | markdownify}}
     </div>
     

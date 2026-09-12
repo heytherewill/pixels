@@ -1,9 +1,9 @@
 logo: # add logo name
-title: will draws (pixelated) things
+title: will draws things
 description: >
-  Things I've drawn using pixels
+  Things I've drawn
 permalink: ':year/:title/'
-url: "pixels.heytherewill.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://art.heytherewill.com" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Tracker
 analytics: UA-148384057-2
