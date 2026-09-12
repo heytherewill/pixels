@@ -4427,28 +4427,37 @@ cite {
 }
 
 #tags {
-  background-color: var(--ctp-mantle);
-  padding: 2rem 1rem 4rem;
   width: 960px;
   max-width: 90%;
-  margin: 7rem auto 7rem;
+  margin: 2rem auto 7rem;
 }
 
 #tags h1 {
   text-align: center;
-  margin: 2rem 0 3rem;
+  margin: 0 0 3rem;
   color: var(--ctp-rosewater);
 }
 
 #tags .tags {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.5rem;
   padding: 0;
   margin-bottom: 3rem;
   list-style: none;
 }
 
 #tags .tags li {
-  float: left;
-  margin: 0 0.5rem 0.5rem 0;
+  margin: 0;
   border: 1px solid var(--ctp-mauve);
   -webkit-border-radius: 0.5rem;
           border-radius: 0.5rem;
