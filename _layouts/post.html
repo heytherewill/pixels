@@ -13,8 +13,12 @@ layout: default
     </header> <!-- End Header -->
 
     <div class="entry_content">
+        {% assign artwork_url = "/assets/img/" | append: page.resource | append: "." | append: page.extension | prepend: site.baseurl %}
         <div class="post_image">
-          <img src={{ "/assets/img/" | prepend: site.baseurl | append : page.resource | append: "." | append: page.extension}} alt="{{page.title}}">
+          <a class="post_image_link" href="{{ artwork_url }}" target="_blank" rel="noopener" aria-label="Open {{ page.title | escape }} artwork full size in a new tab">
+            <img src="{{ artwork_url }}" alt="{{ page.title | escape }}">
+          </a>
+          <a class="post_image_full_size" href="{{ artwork_url }}" target="_blank" rel="noopener">View full-size artwork <span aria-hidden="true">&#8599;</span></a>
         </div>
 
         {% if page.tags contains 'pixel-art' %}
@@ -47,8 +51,9 @@ layout: default
       <div class="recent_list">
         {% for post in site.posts offset:0 limit:6 %}
           {% if post.title %}
+            {% assign recent_image_url = "/assets/img/" | append: post.resource | append: "." | append: post.extension | prepend: site.baseurl %}
             <a href="{{ post.url | prepend: site.baseurl }}" class="recent_item">
-              <img class="recent_image" style="opacity: 0.4;" src={{ "/assets/img/" | prepend: site.baseurl | append : post.resource | append: "." | append: post.extension }} > </img>
+              <img class="recent_image" src="{{ recent_image_url }}" alt="" loading="lazy" decoding="async">
               <span>{{ post.title }}</span>
             </a>
           {% endif %}

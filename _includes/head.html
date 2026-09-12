@@ -1,10 +1,14 @@
 <head>
+	{% assign meta_description = page.description | default: site.description | strip_html | strip_newlines %}
 	<meta charset="utf-8">
-	<title>{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}</title>
-	<meta name="description" content="{{ page.description }}">
+	<title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+	<meta name="description" content="{{ meta_description | escape }}">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta property="og:image" content={{ "/assets/img/" | prepend: site.baseurl | append : page.resource | append: "." | append: page.extension}}>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% if page.resource and page.extension %}
+	{% assign social_image = "/assets/img/" | append: page.resource | append: "." | append: page.extension %}
+	<meta property="og:image" content="{{ social_image | absolute_url }}">
+	{% endif %}
 	<link rel="shortcut icon" href="{{ "/assets/img/favicon/favicon.ico" | prepend: site.baseurl }}" type="image/x-icon">
 	<link rel="apple-touch-icon" href="{{ "/assets/img/favicon/apple-touch-icon.png" | prepend: site.baseurl }}">
 	<link rel="apple-touch-icon" sizes="72x72" href="{{ "/assets/img/favicon/apple-touch-icon-72x72.png" | prepend: site.baseurl }}">
@@ -16,7 +20,7 @@
 	<!-- iOS Safari -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="#d25469">
 	<!-- Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Code&amp;display=swap" rel="stylesheet">
 	<!-- Styles -->
 	<link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}">
 </head>

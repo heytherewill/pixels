@@ -14,11 +14,7 @@ paginate_path: /page:num/
 
 # Build settings
 markdown: kramdown
-plugins_dir:
-  - jekyll-paginate
-  - jekyll-sitemap
-
-gems:
+plugins:
   - jekyll-paginate
   - jekyll-sitemap
   
